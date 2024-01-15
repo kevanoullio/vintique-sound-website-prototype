@@ -239,7 +239,7 @@ main .video-container iframe {
 
 .section-aquamarine h1 {
     color: var(--color-jet);
-    text-shadow: 4px 4px 4px var(--color-silver);
+    text-shadow: 4px 4px 4px var(--color-platinum);
 }
 
 .section-aquamarine p {
@@ -259,7 +259,7 @@ main .video-container iframe {
 
 .section-jasmine h1 {
     color: var(--color-jet);
-    text-shadow: 4px 4px 4px var(--color-silver);
+    text-shadow: 4px 4px 4px var(--color-platinum);
 }
 
 .section-jasmine p {
@@ -366,14 +366,25 @@ button {
 
     header #menu-items {
         display: none;
+        position: absolute;
+        top: calc(var(--header-height) + 20px);
+        right: 20%;
+        background-color: var(--color-jet);
+    }
+    
+    /* Show the menu items in a column */
+    header #menu-items.open {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     header #menu-hamburger-icon {
         display: block;
+        cursor: pointer;
     }
 
     header #menu-hamburger-icon img {
-        /* align-items: right; */
         width: 40px;
         height: auto;
     }
