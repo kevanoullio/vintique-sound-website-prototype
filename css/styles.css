@@ -212,6 +212,25 @@ main .video-container iframe {
     color: var(--color-jet);
 }
 
+.section-platinum .button-aquamarine {
+    background: var(--color-aquamarine);
+}
+
+.section-platinum .button-aquamarine:hover {
+    background: var(--color-sunset);
+    outline: 5px solid var(--color-salmon);
+}
+
+.section-platinum .button-salmon {
+    background: var(--color-salmon);
+}
+
+.section-platinum .button-salmon:hover {
+    background: var(--color-platinum);
+    color: var(--color-salmon);
+    outline: 5px solid var(--color-sunset);
+}
+
 .section-aquamarine {
     background-color: var(--color-aquamarine);
     color: var(--color-jet);
@@ -278,12 +297,9 @@ main .video-container iframe {
 /*---- FOOTER ----*/
 footer {
     height: var(--footer-height);
-
-    /* Align items in header */
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    /* gap: 24px; */
     
 }
 
@@ -338,25 +354,6 @@ button {
     padding: 10px;
     margin: 30px;
     cursor: pointer;
-}
-
-#button-aquamarine {
-    background: var(--color-aquamarine);
-}
-
-#button-aquamarine:hover {
-    background: var(--color-sunset);
-    outline: 5px solid var(--color-salmon);
-}
-
-#button-salmon {
-    background: var(--color-salmon);
-}
-
-#button-salmon:hover {
-    background: var(--color-platinum);
-    color: var(--color-salmon);
-    outline: 5px solid var(--color-sunset);
 }
 
 
