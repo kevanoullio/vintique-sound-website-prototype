@@ -27,8 +27,8 @@
     --color-salmon: #ff7c6bff;
 
     /* Layout */
-    --header-height: 50px;
-    --footer-height: auto;
+    --header-height: 45px; /* or auto */
+    --footer-height: auto; /* or 45px */
 }
 
 
@@ -43,6 +43,10 @@ h1 {
     font-size: calc(min(max(6vw, 36px), 56px));
 }
 
+h2 {
+    font-size: calc(min(max(4vw, 24px), 36px));
+}
+
 p {
     font-size: calc(min(max(2vw, 18px), 26px));
     padding: 0.5rem;
@@ -51,6 +55,11 @@ p {
 
 /*---- OVERVIEW ----*/
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
     margin: 0; /* Removes white space around page */
     background-color: var(--color-platinum);
     font-family: var(--font-main);
@@ -104,6 +113,7 @@ header #menu-items a:hover {
 
 /*---- MAIN ----*/
 main {
+    flex: 1;
     padding-top: calc(var(--header-height) - 10px);
     min-height: calc(100vh - 3 * var(--header-height) - var(--footer-height));
     align-items: center;
@@ -300,7 +310,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    
+    width: 100%;
 }
 
 footer #footer-logo img {
