@@ -1,0 +1,243 @@
+/*---- LAYOUT ----*/
+/*----  (body, header, footer, main, grid/flex) ----*/
+
+
+
+/*---- BODY ----*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Removes white space around page */
+    background-color: var(--color-platinum);
+    font-family: var(--font-main);
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+
+/*---- MAIN ----*/
+main {
+    flex: 1;
+    padding-top: calc(var(--header-height) - 10px);
+    min-height: calc(100vh - 3 * var(--header-height) - var(--footer-height));
+    align-items: center;
+    text-align: center;
+}
+
+
+/*---- CONTAINER ----*/
+.container-text {
+    width: 70vw;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*---- HEADER ----*/
+header {
+    /* Define header dimensions and behavior */
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    padding: 10px;
+    z-index: 100;
+
+    /* Align items in header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    /* Define color */
+    background-color: var(--color-jet);
+    color: var(--color-platinum);
+}
+
+header #header-logo a img {
+    height: 40px;
+    width: auto;
+}
+
+header #menu-hamburger-icon {
+    display: none;
+}
+
+header #menu-items a {
+    padding: 10px;
+    font-family: var(--font-menu);
+    font-size: var(--font-size-menu);
+    font-weight: bold;
+    color: var(--color-platinum);
+    text-decoration: none;
+}
+
+header #menu-items a:hover {
+    text-decoration: none;
+    color: var(--color-aquamarine);
+}
+
+
+/*---- MAIN ----*/
+main {
+    flex: 1;
+    padding-top: calc(var(--header-height) - 10px);
+    min-height: calc(100vh - 3 * var(--header-height) - var(--footer-height));
+    align-items: center;
+    text-align: center;
+    /* margin: auto; */
+}
+
+main #index-logo img {
+    padding: 2vw;
+    width: 80%;
+    max-width: 635px;
+    min-width: 25%;
+    height: auto;
+}
+
+main .image-large img,
+.spotify-container,
+.soundcloud-container {
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    min-width: 25%;
+    max-width: 960px;
+    height: auto;
+    margin: 0 auto;
+    padding: 2vw;
+}
+
+main .google-sheets-container iframe{
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    min-width: 25%;
+    max-width: 960px;
+    height: 100vh;
+    min-height: 100%;
+    max-height: 540px;
+    margin: 0 auto;
+    padding: 2vw;
+}
+
+main .video-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+main .video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* for 16:9 aspect ratio */
+}
+
+main .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*---- FOOTER ----*/
+footer {
+    /* Define footer dimensions and behavior */
+    width: 100%;
+    height: var(--footer-height);
+    position: relative;
+    padding: 10px;
+
+    /* Align items in footer */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    /* Define color */
+    background-color: var(--color-jet);
+    color: var(--color-platinum);
+}
+
+footer #footer-logo img {
+    height: 60px;
+    width: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+footer #footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 5vw;
+    margin-right: 10vw;
+}
+
+footer #footer-socials img {
+    width: 32px;
+    height: auto;
+}
+
+footer #footer-socials a:hover {
+    filter: invert(1);
+}
+
+footer #footer-copyright {
+    font-size: var(--font-size-footer);
+    color: var(--color-platinum);
+    text-align: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+/*---- GLOBAL BEHAVIOUR ----*/
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*---- ANIMATIONS ----*/
+nav a, button {
+    transition: all 0.3s ease;
+}
+
+
+/*---- Media Queries to adjust for smaller screen sizes ----*/
+@media (max-width: 960px) {
+    header {
+        display: flex;
+        gap: 25vw;
+    }
+
+    header #menu-items {
+        display: none;
+        position: absolute;
+        top: calc(var(--header-height) + 20px);
+        right: 20%;
+        background-color: var(--color-jet);
+    }
+    
+    /* Show the menu items in a column */
+    header #menu-items.open {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header #menu-hamburger-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    header #menu-hamburger-icon img {
+        width: 40px;
+        height: auto;
+    }
+}

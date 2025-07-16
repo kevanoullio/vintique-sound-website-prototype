@@ -1,0 +1,37 @@
+/*---- BUTTONS ----*/
+
+
+/*---- GENERIC BUTTON ----*/
+button {
+    text-decoration: none;
+    color: var(--color-jet);
+    font-size: 1.5rem;
+    text-shadow: 0 1px 1px var(--color-jet);
+    border: 5px solid var(--color-jet);
+    border-radius: 6px;
+    padding: 10px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+
+/*---- BUTTON TYPES ----*/
+.button-aquamarine {
+    background-color: var(--color-aquamarine);
+    color: var(--color-jet);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.button-salmon {
+    background-color: var(--color-salmon);
+    color: var(--color-jet);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Add more button types as needed */

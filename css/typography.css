@@ -1,0 +1,16 @@
+/*---- TYPOGRAPHY ----*/
+/*---- (headings, paragraphs, links, etc.) ----*/
+
+
+h1 {
+    font-size: calc(min(max(6vw, 36px), 56px));
+}
+
+h2 {
+    font-size: calc(min(max(4vw, 24px), 36px));
+}
+
+p {
+    font-size: calc(min(max(2vw, 18px), 26px));
+    padding: 0.5rem;
+}
