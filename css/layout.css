@@ -2,7 +2,6 @@
 /*----  (body, header, footer, main, grid/flex) ----*/
 
 
-
 /*---- BODY ----*/
 body {
     display: flex;
@@ -210,7 +209,7 @@ nav a, button {
 
 
 /*---- Media Queries to adjust for smaller screen sizes ----*/
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
     header {
         display: flex;
         gap: 25vw;
@@ -223,7 +222,7 @@ nav a, button {
         right: 20%;
         background-color: var(--color-jet);
     }
-    
+
     /* Show the menu items in a column */
     header #menu-items.open {
         display: flex;

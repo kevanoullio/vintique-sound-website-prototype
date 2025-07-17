@@ -10,7 +10,11 @@ h2 {
     font-size: calc(min(max(4vw, 24px), 36px));
 }
 
+h3 {
+    font-size: calc(min(max(2vw, 20px), 30px));
+}
+
 p {
-    font-size: calc(min(max(2vw, 18px), 26px));
+    font-size: calc(min(max(1.5vw, 14px), 18px));
     padding: 0.5rem;
 }
