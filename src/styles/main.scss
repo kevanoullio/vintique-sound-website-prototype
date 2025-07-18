@@ -1,0 +1,10 @@
+// Imports all .scss partials, compiles public/styles.css (order matters)
+@import "_variables";
+@import "_colors";
+@import "_theme";
+@import "_typography";
+@import "_shapes";
+@import "_layout";
+@import "_sections";
+@import "components/_buttons";
+@import "components/_accordions";

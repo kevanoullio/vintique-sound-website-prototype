@@ -1,8 +1,4 @@
-/*---- UTILITIES ----*/
-/*---- (custom reusable utilities, like accordions, etc) ----*/
-
-
-/*---- ACCORDION ----*/
+/*---- ACCORDIONS ----*/
 .accordion-button {
     width: 80%;
     margin: 0 auto;
@@ -38,6 +34,7 @@
 
 .accordion-panel {
     width: 80%;
+    border-radius: 6px;
     margin: 0 auto;
     margin-block-end: 16px;
     background-color: var(--color-silver);

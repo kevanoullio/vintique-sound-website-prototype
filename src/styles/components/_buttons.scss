@@ -34,4 +34,19 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
-/* Add more button types as needed */
+
+.button-primary {
+    background-color: var(--color-jet);
+    color: var(--color-platinum);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: var(--color-aquamarine);
+    color: var(--color-jet);
+    outline: 5px solid var(--color-sunset);
+}
