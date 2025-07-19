@@ -1,20 +1,32 @@
+/*---- COLORS [_colors.scss] ----*/
+/*---- global color variables for consistent theming ----*/
+// NOTE: Use CSS color variable declaration for dynamic theming
+// [CSS: --color-jet: #2f2e2e;] vs [SCSS: $color-jet: #2f2e2e;]
+
 :root {
-    /* Primary palette */
-    --color-primary: #2a9d8f;
-    --color-secondary: #e9c46a;
-    --color-accent: #f76e11;
+  // /* Vintique Sound Logo Color Pallette */
+  // --color-bistre: #2d261eff;
+  // --color-coyote: #7b593dff;
+  // --color-copper: #ae7e4eff;
+  // --color-sunset: #ffcf83ff;
+  // --color-pearl: #e3ddc3ff;
+  // --color-alice-blue: #f5fafdff;
+  // --color-light-blue: #bce7f4ff;
+  // --color-sky-blue: #82d4eaff;
+  // --color-aquamarine: #8decccff;
+  // --color-straw: #ece583ff;
 
-    /* Neutrals */
-    --color-bg: #f4f4f4;
-    --color-surface: #ffffff;
-    --color-border: #cccccc;
+  /* Vintique Sound Website Color Pallete */
+  --color-jet: #2f2e2e;
+  --color-silver: #ababa9;
+  --color-platinum: #eaeaea;
+  --color-aquamarine: #8deccc;
+  --color-sunset: #ffcf83;
+  --color-salmon: #ff7c6b;
 
-    /* Text */
-    --color-text: #222222;
-    --color-text-inverse: #ffffff;
-
-    /* Status/utility */
-    --color-success: #43aa8b;
-    --color-warning: #f9c74f;
-    --color-error: #e63946;
+  /* Status/utility */
+  --color-success: #43aa8b;
+  --color-warning: #f9c74f;
+  --color-danger: #e63946;
+  --color-info: #3998e6;
 }
