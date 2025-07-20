@@ -1,6 +1,18 @@
 /*---- LAYOUT [_layout.scss] ----*/
 /*---- global layout styles for body, header, footer, main, grid/flex ----*/
 
+:root {
+  // Header and Footer
+  --header-height: 46px;
+  --footer-height: auto; // or 45px
+
+  // Layout
+  --max-width: 1200px; // Maximum width for content
+  --desktop-width: 1024px; // Desktop breakpoint
+  --tablet-width: 768px; // Tablet breakpoint
+  --mobile-width: 480px; // Mobile breakpoint
+}
+
 /*---- BODY ----*/
 body {
   display: flex;
@@ -13,8 +25,6 @@ body {
   // width: 100vw;
   overflow-x: hidden;
 }
-
-
 
 /*---- HEADER ----*/
 header {
@@ -184,7 +194,7 @@ button {
 }
 
 /*---- Media Queries to adjust for smaller screen sizes ----*/
-@media (max-width: 1080px) {
+@media (max-width: var(--desktop-width)) {
   // header {
   //   display: flex;
   //   gap: 25vw;
@@ -213,5 +223,45 @@ button {
   header #menu-hamburger-icon img {
     width: 40px;
     height: auto;
+  }
+}
+
+@media (max-width: var(--tablet-width)) {
+  header #menu-items a {
+    font-size: var(--font-size-menu-tablet);
+  }
+
+  main #index-logo img {
+    width: 90%;
+  }
+
+  main .image-large img,
+  .spotify-container,
+  .soundcloud-container {
+    width: 90%;
+  }
+
+  footer #footer-socials img {
+    width: 25px;
+  }
+}
+
+@media (max-width: var(--mobile-width)) {
+  header #menu-items a {
+    font-size: var(--font-size-menu-mobile);
+  }
+
+  main #index-logo img {
+    width: 100%;
+  }
+
+  main .image-large img,
+  .spotify-container,
+  .soundcloud-container {
+    width: 100%;
+  }
+
+  footer #footer-socials img {
+    width: 20px;
   }
 }

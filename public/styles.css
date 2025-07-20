@@ -3,12 +3,6 @@
 /*---- compiles public/styles.css (order matters) ----*/
 /*---- VARIABLES [_variables.scss] ----*/
 /*---- global variables for colors, fonts, spacing, etc. ----*/
-:root {
-  /* Layout */
-  --header-height: 46px;
-  --footer-height: auto;
-}
-
 /*---- MIXINS [_mixins.scss] ----*/
 /*---- custom reusable utilities, like rounded corners, shadows, etc ----*/
 /*---- UTILITIES [_utilities.scss] ----*/
@@ -194,6 +188,15 @@ p {
 
 /*---- LAYOUT [_layout.scss] ----*/
 /*---- global layout styles for body, header, footer, main, grid/flex ----*/
+:root {
+  --header-height: 46px;
+  --footer-height: auto;
+  --max-width: 1200px;
+  --desktop-width: 1024px;
+  --tablet-width: 768px;
+  --mobile-width: 480px;
+}
+
 /*---- BODY ----*/
 body {
   display: flex;
@@ -353,7 +356,7 @@ button {
 }
 
 /*---- Media Queries to adjust for smaller screen sizes ----*/
-@media (max-width: 1080px) {
+@media (max-width: var(--desktop-width)) {
   header #menu-items {
     display: none;
     position: absolute;
@@ -374,6 +377,38 @@ button {
   header #menu-hamburger-icon img {
     width: 40px;
     height: auto;
+  }
+}
+@media (max-width: var(--tablet-width)) {
+  header #menu-items a {
+    font-size: var(--font-size-menu-tablet);
+  }
+  main #index-logo img {
+    width: 90%;
+  }
+  main .image-large img,
+  .spotify-container,
+  .soundcloud-container {
+    width: 90%;
+  }
+  footer #footer-socials img {
+    width: 25px;
+  }
+}
+@media (max-width: var(--mobile-width)) {
+  header #menu-items a {
+    font-size: var(--font-size-menu-mobile);
+  }
+  main #index-logo img {
+    width: 100%;
+  }
+  main .image-large img,
+  .spotify-container,
+  .soundcloud-container {
+    width: 100%;
+  }
+  footer #footer-socials img {
+    width: 20px;
   }
 }
 /*---- SECTIONS [_sections.scss] ----*/
