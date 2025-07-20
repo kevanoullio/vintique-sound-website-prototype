@@ -1,35 +1,8 @@
-/*---- VARIABLES ----*/
-/*---- (colors, fonts, spacing, etc.) ----*/
-
+/*---- VARIABLES [_variables.scss] ----*/
+/*---- global variables for colors, fonts, spacing, etc. ----*/
 
 :root {
-    /* Fonts */
-    --font-main: Verdana, Tahoma, Arial, sans-serif;
-    --font-menu: Verdana, "Arial Black";
-    --font-size-menu: 14px;
-    --font-size-footer: 14px;
-
-    /* Vintique Sound Logo Color Pallette */
-    --color-bistre: #2d261eff;
-    --color-coyote: #7b593dff;
-    --color-copper: #ae7e4eff;
-    --color-sunset: #ffcf83ff;
-    --color-pearl: #e3ddc3ff;
-    --color-alice-blue: #f5fafdff;
-    --color-light-blue: #bce7f4ff;
-    --color-sky-blue: #82d4eaff;
-    --color-aquamarine: #8decccff;
-    --color-straw: #ece583ff;
-
-    /* Vintique Sound Website Color Pallete */
-    --color-jet: #2f2e2e;
-    --color-silver: #ababa9;
-    --color-platinum: #eaeaea;
-    --color-aquamarine: #8deccc;
-    --color-sunset: #ffcf83;
-    --color-salmon: #ff7c6b;
-
-    /* Layout */
-    --header-height: 45px; /* or auto */
-    --footer-height: auto; /* or 45px */
+  /* Layout */
+  --header-height: 46px;
+  --footer-height: auto; // or 45px
 }

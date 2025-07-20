@@ -1,23 +1,45 @@
 @charset "UTF-8";
-/*---- VARIABLES ----*/
-/*---- (colors, fonts, spacing, etc.) ----*/
+/*---- Imports all .scss partials ----*/
+/*---- compiles public/styles.css (order matters) ----*/
+/*---- VARIABLES [_variables.scss] ----*/
+/*---- global variables for colors, fonts, spacing, etc. ----*/
 :root {
-  /* Fonts */
-  --font-main: Verdana, Tahoma, Arial, sans-serif;
-  --font-menu: Verdana, "Arial Black";
-  --font-size-menu: 14px;
-  --font-size-footer: 14px;
-  /* Vintique Sound Logo Color Pallette */
-  --color-bistre: #2d261eff;
-  --color-coyote: #7b593dff;
-  --color-copper: #ae7e4eff;
-  --color-sunset: #ffcf83ff;
-  --color-pearl: #e3ddc3ff;
-  --color-alice-blue: #f5fafdff;
-  --color-light-blue: #bce7f4ff;
-  --color-sky-blue: #82d4eaff;
-  --color-aquamarine: #8decccff;
-  --color-straw: #ece583ff;
+  /* Layout */
+  --header-height: 46px;
+  --footer-height: auto;
+}
+
+/*---- MIXINS [_mixins.scss] ----*/
+/*---- custom reusable utilities, like rounded corners, shadows, etc ----*/
+/*---- UTILITIES [_utilities.scss] ----*/
+/*---- single purpose utilities, text alignment, display, etc ----*/
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.hide {
+  display: none !important;
+}
+
+/*---- COLORS [_colors.scss] ----*/
+/*---- global color variables for consistent theming ----*/
+:root {
   /* Vintique Sound Website Color Pallete */
   --color-jet: #2f2e2e;
   --color-silver: #ababa9;
@@ -25,95 +47,175 @@
   --color-aquamarine: #8deccc;
   --color-sunset: #ffcf83;
   --color-salmon: #ff7c6b;
-  /* Layout */
-  --header-height: 45px; /* or auto */
-  --footer-height: auto; /* or 45px */
-}
-
-:root {
-  /* Primary palette */
-  --color-primary: #2a9d8f;
-  --color-secondary: #e9c46a;
-  --color-accent: #f76e11;
-  /* Neutrals */
-  --color-bg: #f4f4f4;
-  --color-surface: #ffffff;
-  --color-border: #cccccc;
-  /* Text */
-  --color-text: #222222;
-  --color-text-inverse: #ffffff;
   /* Status/utility */
   --color-success: #43aa8b;
   --color-warning: #f9c74f;
-  --color-error: #e63946;
+  --color-danger: #e63946;
+  --color-info: #3998e6;
 }
 
-/*---- TYPOGRAPHY ----*/
-/*---- (headings, paragraphs, links, etc.) ----*/
+/*---- THEME [_theme.scss] ----*/
+/*---- dynamic theming styles for light and dark modes ----*/
+[data-theme=light] {
+  --color-header: var(--color-jet);
+  --color-header-text: var(--color-platinum);
+  --color-footer: var(--color-jet);
+  --color-footer-text: var(--color-platinum);
+  --color-bg: var(--color-platinum);
+  --color-surface: var(--color-silver);
+  --color-surface-hover: var(--color-aquamarine);
+  --color-surface-active: var(--color-salmon);
+  --color-surface-focus: var(--color-sunset);
+  --color-border: var(--color-jet);
+  --color-border-hover: var(--color-sunset);
+  --color-border-active: var(--color-aquamarine);
+  --color-border-focus: var(--color-salmon);
+  --color-outline: var(--color-silver);
+  --color-outline-hover: var(--color-sunset);
+  --color-outline-active: var(--color-aquamarine);
+  --color-outline-focus: var(--color-salmon);
+  --color-text: var(--color-jet);
+  --color-text-inverse: var(--color-platinum);
+  --color-text-shadow: var(--color-silver);
+  --color-text-highlight: var(--color-salmon);
+  --color-primary: var(--color-salmon);
+  --color-primary-hover: var(--color-aquamarine);
+  --color-primary-active: var(--color-sunset);
+  --color-primary-focus: var(--color-jet);
+  --color-secondary: var(--color-aquamarine);
+  --color-secondary-hover: var(--color-sunset);
+  --color-secondary-active: var(--color-salmon);
+  --color-secondary-focus: var(--color-jet);
+  --color-accent: var(--color-sunset);
+  --color-accent-hover: var(--color-aquamarine);
+  --color-accent-active: var(--color-salmon);
+  --color-accent-focus: var(--color-jet);
+}
+
+[data-theme=dark] {
+  --color-header: var(--color-jet);
+  --color-header-text: var(--color-platinum);
+  --color-footer: var(--color-jet);
+  --color-footer-text: var(--color-platinum);
+  --color-bg: var(--color-silver);
+  --color-surface: var(--color-platinum);
+  --color-surface-hover: var(--color-salmon);
+  --color-surface-active: var(--color-sunset);
+  --color-surface-focus: var(--color-aquamarine);
+  --color-border: var(--color-jet);
+  --color-border-hover: var(--color-aquamarine);
+  --color-border-active: var(--color-salmon);
+  --color-border-focus: var(--color-sunset);
+  --color-outline: var(--color-platinum);
+  --color-outline-hover: var(--color-aquamarine);
+  --color-outline-active: var(--color-salmon);
+  --color-outline-focus: var(--color-sunset);
+  --color-text: var(--color-jet);
+  --color-text-inverse: var(--color-platinum);
+  --color-text-shadow: var(--color-silver);
+  --color-text-highlight: var(--color-aquamarine);
+  --color-primary: var(--color-aquamarine);
+  --color-primary-hover: var(--color-sunset);
+  --color-primary-active: var(--color-salmon);
+  --color-primary-focus: var(--color-jet);
+  --color-secondary: var(--color-sunset);
+  --color-secondary-hover: var(--color-aquamarine);
+  --color-secondary-active: var(--color-salmon);
+  --color-secondary-focus: var(--color-jet);
+  --color-accent: var(--color-salmon);
+  --color-accent-hover: var(--color-aquamarine);
+  --color-accent-active: var(--color-sunset);
+  --color-accent-focus: var(--color-jet);
+}
+
+/*---- TYPOGRAPHY [_typography.scss] ----*/
+/*---- global typography styles for headings, paragraphs, links, etc. ----*/
+:root {
+  /* Fonts */
+  --font-main: Verdana, Tahoma, Arial, sans-serif;
+  --font-menu: Verdana, "Arial Black";
+  --font-size-menu: 14px;
+  --font-size-header: 16px;
+  --font-size-footer: 14px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+}
+
+/*---- FONTS ----*/
+body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+menu {
+  font-family: var(--font-menu);
+  font-size: var(--font-size-menu);
+}
+
+/*---- HEADINGS ----*/
 h1 {
-  font-size: min(max(6vw, 36px), 56px);
+  font-size: clamp(2.5rem, 4.5vw, 3rem);
 }
 
 h2 {
-  font-size: min(max(4vw, 24px), 36px);
+  font-size: clamp(2rem, 4vw, 2.5rem);
 }
 
 h3 {
-  font-size: min(max(2vw, 20px), 30px);
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+h4 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+/*---- PARAGRAPHS ----*/
 p {
-  font-size: min(max(1.5vw, 14px), 18px);
-  padding: 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
-/*---- LAYOUT ----*/
-/*----  (body, header, footer, main, grid/flex) ----*/
+/*---- SHAPES [_shapes.scss] ----*/
+/*---- styles for shapes, borders, and other visual elements ----*/
+/*---- ROUNDED CORNERS ----*/
+.rounded {
+  border-radius: 6px;
+}
+
+/*---- BORDERS ----*/
+.bordered {
+  border: 5px solid var(--color-border);
+}
+
+/*---- SHADOWS ----*/
+.shadow {
+  box-shadow: 0 1px 3px var(--color-shadow);
+}
+
+/*---- LAYOUT [_layout.scss] ----*/
+/*---- global layout styles for body, header, footer, main, grid/flex ----*/
 /*---- BODY ----*/
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin: 0; /* Removes white space around page */
-  background-color: var(--color-platinum);
-  font-family: var(--font-main);
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-/*---- MAIN ----*/
-main {
-  flex: 1;
-  padding-top: calc(var(--header-height) - 10px);
-  min-height: calc(100vh - 3 * var(--header-height) - var(--footer-height));
   align-items: center;
-  text-align: center;
-}
-
-/*---- CONTAINER ----*/
-.container-text {
-  width: 70vw;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
+  background-color: var(--color-bg);
+  overflow-x: hidden;
 }
 
 /*---- HEADER ----*/
 header {
   /* Define header dimensions and behavior */
-  width: 100%;
-  height: var(--header-height);
-  position: fixed;
+  width: 100vw;
   padding: 10px;
-  z-index: 100;
   /* Align items in header */
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
+  justify-content: space-evenly;
   /* Define color */
-  background-color: var(--color-jet);
-  color: var(--color-platinum);
+  background-color: var(--color-header);
+  color: var(--color-header-text);
 }
 
 header #header-logo a img {
@@ -130,22 +232,20 @@ header #menu-items a {
   font-family: var(--font-menu);
   font-size: var(--font-size-menu);
   font-weight: bold;
-  color: var(--color-platinum);
+  color: var(--color-header-text);
   text-decoration: none;
 }
 
 header #menu-items a:hover {
   text-decoration: none;
-  color: var(--color-aquamarine);
+  color: var(--color-primary);
 }
 
 /*---- MAIN ----*/
 main {
-  flex: 1;
-  padding-top: calc(var(--header-height) - 10px);
-  min-height: calc(100vh - 3 * var(--header-height) - var(--footer-height));
-  align-items: center;
   text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
   /* margin: auto; */
 }
 
@@ -192,7 +292,7 @@ main .video-container {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* for 16:9 aspect ratio */
+  padding-bottom: 56.25%;
 }
 
 main .video-container iframe {
@@ -206,38 +306,28 @@ main .video-container iframe {
 /*---- FOOTER ----*/
 footer {
   /* Define footer dimensions and behavior */
-  width: 100%;
+  width: 100vw;
   height: var(--footer-height);
-  position: relative;
-  padding: 10px;
+  padding: 8px;
   /* Align items in footer */
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-evenly;
   /* Define color */
-  background-color: var(--color-jet);
-  color: var(--color-platinum);
+  background-color: var(--color-footer);
+  /* Define text */
+  font-size: var(--font-size-footer);
+  color: var(--color-footer-text);
 }
 
-footer #footer-logo img {
-  height: 60px;
-  width: 60px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 15vw;
-  margin-right: 15vw;
-}
-
-footer #footer-info {
+footer #footer-socials {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-left: 5vw;
-  margin-right: 10vw;
+  justify-content: center;
+  gap: 6px;
 }
 
 footer #footer-socials img {
-  width: 32px;
+  width: 30px;
   height: auto;
 }
 
@@ -246,9 +336,7 @@ footer #footer-socials a:hover {
 }
 
 footer #footer-copyright {
-  font-size: var(--font-size-footer);
-  color: var(--color-platinum);
-  text-align: right;
+  text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -259,22 +347,19 @@ html {
 }
 
 /*---- ANIMATIONS ----*/
-nav a, button {
+nav a,
+button {
   transition: all 0.3s ease;
 }
 
 /*---- Media Queries to adjust for smaller screen sizes ----*/
 @media (max-width: 1080px) {
-  header {
-    display: flex;
-    gap: 25vw;
-  }
   header #menu-items {
     display: none;
     position: absolute;
     top: calc(var(--header-height) + 20px);
-    right: 20%;
-    background-color: var(--color-jet);
+    right: 25%;
+    background-color: var(--color-header);
   }
   /* Show the menu items in a column */
   header #menu-items.open {
@@ -291,8 +376,25 @@ nav a, button {
     height: auto;
   }
 }
-/*---- SECTIONS ----*/
-/*---- (section backgrounds, text colors, etc.) ----*/
+/*---- SECTIONS [_sections.scss] ----*/
+/*---- styles for different sections of the website ----*/
+/*---- CONTAINERS ----*/
+.container-text {
+  width: 60vw;
+  max-width: 960px;
+  background-color: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 60px auto;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.section-main {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
 .section-jet {
   background-color: var(--color-jet);
   padding: 40px;
@@ -411,80 +513,160 @@ nav a, button {
   outline: 5px solid var(--color-aquamarine);
 }
 
-/*---- BUTTONS ----*/
-/*---- GENERIC BUTTON ----*/
-button {
-  text-decoration: none;
-  color: var(--color-jet);
-  font-size: 1.5rem;
-  text-shadow: 0 1px 1px var(--color-jet);
-  border: 5px solid var(--color-jet);
-  border-radius: 6px;
-  padding: 10px;
-  margin: 30px;
-  cursor: pointer;
-}
-
+/*---- BUTTONS [components/_buttons.scss]----*/
+/*---- styles for buttons, including generic and specific button types ----*/
 /*---- BUTTON TYPES ----*/
-.button-aquamarine {
-  background-color: var(--color-aquamarine);
-  color: var(--color-jet);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+/*---- BUTTON STYLES ----*/
+/*---- BUTTON SIZES ----*/
+/*---- BUTTON STATES ----*/
+/*---- BUTTON MIXINS ----*/
+/*----- BUTTON CLASSES ----*/
+.button {
+  display: inline-block;
+  font-family: inherit;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border-radius: var(--border-radius, 8px);
 }
 
-.button-salmon {
-  background-color: var(--color-salmon);
-  color: var(--color-jet);
-  border: none;
+.button-small {
+  font-size: 0.875rem;
+  padding: 6px 12px;
+  margin: 6px;
+}
+
+.button-medium {
+  font-size: 1rem;
   padding: 10px 20px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+  margin: 10px;
+}
+
+.button-large {
+  font-size: 1.25rem;
+  padding: 14px 28px;
+  margin: 14px;
 }
 
 .button-primary {
-  background-color: var(--color-jet);
-  color: var(--color-platinum);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: 5px solid var(--color-border);
+}
+.button-primary:hover, .button-primary:focus {
+  background: var(--color-primary-hover);
+  color: var(--color-text-inverse);
+  outline: 5px solid var(--color-primary-hover);
+}
+.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-.button-primary:hover {
-  background-color: var(--color-aquamarine);
-  color: var(--color-jet);
-  outline: 5px solid var(--color-sunset);
+.button-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: 5px solid var(--color-border);
+}
+.button-secondary:hover, .button-secondary:focus {
+  background: var(--color-secondary-hover);
+  color: var(--color-text-inverse);
+  outline: 5px solid var(--color-secondary-hover);
+}
+.button-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-/*---- ACCORDIONS ----*/
+.button-success {
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+  border: 5px solid var(--color-border);
+}
+.button-success:hover, .button-success:focus {
+  background: var(--color-success-hover);
+  color: var(--color-text-inverse);
+  outline: 5px solid var(--color-success-hover);
+}
+.button-success:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-outline-primary {
+  background: none;
+  color: var(--color-primary);
+  border: 5px solid var(--color-primary);
+}
+.button-outline-primary:hover, .button-outline-primary:focus {
+  background: var(--color-primary-hover);
+  color: var(--color-text-inverse);
+  outline: 5px solid var(--color-primary-hover);
+}
+.button-outline-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-outline-secondary {
+  background: none;
+  color: var(--color-secondary);
+  border: 5px solid var(--color-secondary);
+}
+.button-outline-secondary:hover, .button-outline-secondary:focus {
+  background: var(--color-secondary-hover);
+  color: var(--color-text-inverse);
+  outline: 5px solid var(--color-secondary-hover);
+}
+.button-outline-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-outline-success {
+  background: none;
+  color: var(--color-success);
+  border: 5px solid var(--color-success);
+}
+.button-outline-success:hover, .button-outline-success:focus {
+  background: var(--color-success-hover);
+  color: var(--color-text-inverse);
+  outline: 5px solid var(--color-success-hover);
+}
+.button-outline-success:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/*---- ACCORDIONS [components/_accordions.scss] ----*/
+/*---- styles for accordion components ----*/
+/*---- ACCORDION ----*/
 .accordion-button {
   width: 80%;
   margin: 0 auto;
-  border: 3px solid var(--color-jet);
-  background-color: var(--color-silver);
+  border: 3px solid var(--color-border);
+  background-color: var(--color-surface);
   font-size: max(min(1.5vw, 20px), 14px);
   text-align: center;
   position: relative;
   padding: 1rem 2rem 1rem 1rem;
-  color: var(--color-jet);
+  color: var(--color-text);
   cursor: pointer;
   transition: 0.3s;
 }
 
-.active, .accordion-button:hover {
-  outline: 5px solid var(--color-sunset);
-  background-color: var(--color-aquamarine);
+.active,
+.accordion-button:hover {
+  outline: 5px solid var(--color-outline-hover);
+  background-color: var(--color-surface-hover);
 }
 
 .accordion-button:after {
-  content: "+"; /* Unicode character for "+" sign */
-  color: var(--color-salmon);
+  content: "+";
+  color: var(--color-primary);
   font-weight: bold;
   position: absolute;
   right: 1rem;
@@ -493,15 +675,14 @@ button {
 }
 
 .active:after {
-  content: "−"; /* Unicode character for "-" sign */
+  content: "−";
 }
 
 .accordion-panel {
   width: 80%;
-  border-radius: 6px;
   margin: 0 auto;
   margin-block-end: 16px;
-  background-color: var(--color-silver);
+  background-color: var(--color-surface);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
