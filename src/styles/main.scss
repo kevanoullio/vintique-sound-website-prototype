@@ -1,10 +1,13 @@
-// Imports all .scss partials, compiles public/styles.css (order matters)
-@import "_variables";
-@import "_colors";
-@import "_theme";
-@import "_typography";
-@import "_shapes";
-@import "_layout";
-@import "_sections";
-@import "components/_buttons";
-@import "components/_accordions";
+/*---- Imports all .scss partials ----*/
+/*---- compiles public/styles.css (order matters) ----*/
+@use "_variables";
+@use "_mixins";
+@use "_utilities";
+@use "_colors";
+@use "_theme";
+@use "_typography";
+@use "_shapes";
+@use "_layout";
+@use "_sections";
+@use "components/_buttons";
+@use "components/_accordions";
