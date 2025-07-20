@@ -48,3 +48,94 @@ for (i = 0; i < accordionButton.length; i++) {
     }
   });
 }
+
+/*---- GOOGLE SHEETS DATA FETCHING ----*/
+// Function to fetch data from Google Sheets and update stats
+async function updateStatsFromGoogleSheets() {
+  // Google Sheets ID from the iframe URL
+  const SHEET_ID = '1I3DHmsZE5agCO3yzW6rW_SD9NH--h31vOounKd0-sWs';
+
+  // Requires sheet be public, use the CSV export URL
+  // Format: https://docs.google.com/spreadsheets/d/[SHEET_ID]/export?format=csv&gid=0
+  const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+
+  try {
+    // Fetch the CSV data
+    const response = await fetch(CSV_URL);
+    const csvText = await response.text();
+
+    // Parse CSV (simple parsing for demonstration)
+    const rows = csvText.split('\n').map(row => row.split(','));
+
+    // Assuming your data is in the second row (index 1)
+    // You may need to adjust these indices based on your actual sheet structure
+    const dataRow = rows[1]; // Second row (first row is usually headers)
+
+    // Update the stat numbers with calculated/derived values
+    // These are example calculations - adjust based on your actual data
+    const projectsMixed = dataRow[1] ? parseInt(dataRow[1].replace(/"/g, '')) || 0 : 0;
+    const mastersComplete = dataRow[2] ? parseInt(dataRow[2].replace(/"/g, '')) || 0 : 0;
+    const happyArtists = dataRow[3] ? parseInt(dataRow[3].replace(/"/g, '')) || 0 : 0;
+
+    // Animate the numbers counting up
+    animateNumber(document.querySelector('[data-sheet-cell="B2"]'), projectsMixed);
+    animateNumber(document.querySelector('[data-sheet-cell="C2"]'), mastersComplete);
+    animateNumber(document.querySelector('[data-sheet-cell="D2"]'), happyArtists);
+
+  } catch (error) {
+    console.error('Error fetching Google Sheets data:', error);
+    // Fallback to default values if fetch fails
+    setDefaultStats();
+  }
+}
+
+// Function to animate number counting
+function animateNumber(element, targetNumber) {
+  if (!element) return;
+
+  const duration = 2000; // 2 seconds
+  const startTime = performance.now();
+  const startNumber = 0;
+
+  function updateNumber(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Easing function for smooth animation
+    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+    const currentNumber = Math.floor(startNumber + (targetNumber - startNumber) * easeOutQuart);
+
+    element.textContent = currentNumber.toLocaleString(); // Add commas for large numbers
+
+    if (progress < 1) {
+      requestAnimationFrame(updateNumber);
+    }
+  }
+
+  requestAnimationFrame(updateNumber);
+}
+
+// Function to set default stats if Google Sheets fetch fails
+function setDefaultStats() {
+  // Set some example default values
+  const defaults = {
+    '[data-sheet-cell="B2"]': 183,
+    '[data-sheet-cell="C2"]': 167,
+    '[data-sheet-cell="D2"]': 42
+  };
+
+  Object.entries(defaults).forEach(([selector, value]) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      animateNumber(element, value);
+    }
+  });
+}
+
+// Initialize stats when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Only update stats if we're on a page that has the stats section
+  if (document.querySelector('.stats-section')) {
+    updateStatsFromGoogleSheets();
+  }
+});
