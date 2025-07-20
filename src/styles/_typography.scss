@@ -1,20 +1,47 @@
-/*---- TYPOGRAPHY ----*/
-/*---- (headings, paragraphs, links, etc.) ----*/
+/*---- TYPOGRAPHY [_typography.scss] ----*/
+/*---- global typography styles for headings, paragraphs, links, etc. ----*/
 
+:root {
+  /* Fonts */
+  --font-main: Verdana, Tahoma, Arial, sans-serif;
+  --font-menu: Verdana, "Arial Black";
+  --font-size-menu: 14px;
+  --font-size-header: 16px;
+  --font-size-footer: 14px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+}
 
+/*---- FONTS ----*/
+body {
+  font-family: var(--font-main);
+  font-size: 16px; // Base font size
+  line-height: 1.5; // Default line height
+}
+
+menu {
+  font-family: var(--font-menu);
+  font-size: var(--font-size-menu);
+}
+
+/*---- HEADINGS ----*/
 h1 {
-    font-size: calc(min(max(6vw, 36px), 56px));
+  font-size: clamp(2.5rem, 4.5vw, 3rem);
 }
 
 h2 {
-    font-size: calc(min(max(4vw, 24px), 36px));
+  font-size: clamp(2rem, 4vw, 2.5rem);
 }
 
 h3 {
-    font-size: calc(min(max(2vw, 20px), 30px));
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+h4 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+/*---- PARAGRAPHS ----*/
 p {
-    font-size: calc(min(max(1.5vw, 14px), 18px));
-    padding: 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
 }
