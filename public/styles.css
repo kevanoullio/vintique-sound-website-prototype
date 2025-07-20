@@ -194,7 +194,7 @@ p {
   --max-width: 1200px;
   --desktop-width: 1024px;
   --tablet-width: 768px;
-  --mobile-width: 480px;
+  --phone-width: 480px;
 }
 
 /*---- BODY ----*/
@@ -355,8 +355,8 @@ button {
   transition: all 0.3s ease;
 }
 
-/*---- Media Queries to adjust for smaller screen sizes ----*/
-@media (max-width: var(--desktop-width)) {
+/*---- Media Queries to adjust for desktop screen sizes ----*/
+@media screen and (max-width: var(--desktop-width)) {
   header #menu-items {
     display: none;
     position: absolute;
@@ -379,7 +379,8 @@ button {
     height: auto;
   }
 }
-@media (max-width: var(--tablet-width)) {
+/*---- Media Queries to adjust for tablet screen sizes ----*/
+@media screen and (max-width: var(--tablet-width)) {
   header #menu-items a {
     font-size: var(--font-size-menu-tablet);
   }
@@ -395,9 +396,10 @@ button {
     width: 25px;
   }
 }
-@media (max-width: var(--mobile-width)) {
+/*---- Media Queries to adjust for phone screen sizes ----*/
+@media screen and (max-width: var(--phone-width)) {
   header #menu-items a {
-    font-size: var(--font-size-menu-mobile);
+    font-size: var(--font-size-menu-phone);
   }
   main #index-logo img {
     width: 100%;
@@ -548,6 +550,98 @@ button {
   outline: 5px solid var(--color-aquamarine);
 }
 
+/*---- STATS SECTION ----*/
+.stats-section {
+  background-color: var(--color-bg);
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Breakpoint line with centered icon */
+.breakpoint-line {
+  display: flex;
+  align-items: center;
+  width: 33.33%;
+  margin-bottom: 40px;
+}
+.breakpoint-line .line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 1px;
+}
+.breakpoint-line .center-icon {
+  margin: 0 20px;
+  padding: 12px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Three stat containers */
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 33.33%;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+.stat-item .stat-icon {
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-item .stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.stat-item .stat-label {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design */
+@media (max-width: var(--tablet-width)) {
+  .breakpoint-line {
+    width: 50%;
+  }
+  .stats-container {
+    width: 80%;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .stat-item .stat-number {
+    font-size: 2rem;
+  }
+}
 /*---- BUTTONS [components/_buttons.scss]----*/
 /*---- styles for buttons, including generic and specific button types ----*/
 /*---- BUTTON TYPES ----*/
