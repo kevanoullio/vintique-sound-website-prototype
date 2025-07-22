@@ -1,15 +1,23 @@
-/*---- TYPOGRAPHY [_typography.scss] ----*/
+/*---- TYPOGRAPHY [theme/_typography.scss] ----*/
 /*---- global typography styles for headings, paragraphs, links, etc. ----*/
 
 :root {
-  /* Fonts */
+  /* Font Type*/
   --font-main: Verdana, Tahoma, Arial, sans-serif;
   --font-menu: Verdana, "Arial Black";
+
+  /* Global Font Sizes */
+  --font-size-h1: clamp(2.5rem, 4.5vw, 3rem);
+  --font-size-h2: clamp(2rem, 4vw, 2.5rem);
+  --font-size-h3: clamp(1.5rem, 3vw, 2rem);
+  --font-size-h4: clamp(1rem, 2.5vw, 1.5rem);
+  --font-size-h5: clamp(1rem, 2vw, 1.25rem);
+  --font-size-p: clamp(1rem, 1.5vw, 1.25rem);
+
+  /* Component Font Sizes */
   --font-size-menu: 14px;
   --font-size-header: 16px;
   --font-size-footer: 14px;
-  --font-size-small: 14px;
-  --font-size-large: 18px;
 }
 
 /*---- FONTS ----*/
@@ -26,22 +34,22 @@ menu {
 
 /*---- HEADINGS ----*/
 h1 {
-  font-size: clamp(2.5rem, 4.5vw, 3rem);
+  font-size: var(--font-size-h1);
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: var(--font-size-h2);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: var(--font-size-h3);
 }
 
 h4 {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: var(--font-size-h4);
 }
 
 /*---- PARAGRAPHS ----*/
 p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: var(--font-size-p);
 }

@@ -4,10 +4,11 @@
 /*---- ACCORDION ----*/
 .accordion-button {
   width: 80%;
+  max-width: 960px;
   margin: 0 auto;
   border: 3px solid var(--color-border);
   background-color: var(--color-surface);
-  font-size: calc(max(min(1.5vw, 20px), 14px));
+  font-size: var(--font-size-h5);
   text-align: center;
   position: relative;
   padding: 1rem 2rem 1rem 1rem;
@@ -38,6 +39,7 @@
 
 .accordion-panel {
   width: 80%;
+  max-width: 960px;
   margin: 0 auto;
   margin-block-end: 16px;
   background-color: var(--color-surface);

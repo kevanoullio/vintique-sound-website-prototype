@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*---- Imports all .scss partials ----*/
 /*---- compiles public/styles.css (order matters) ----*/
-/*---- VARIABLES [_variables.scss] ----*/
+/*---- VARIABLES [core/_variables.scss] ----*/
 /*---- global variables for colors, fonts, spacing, etc. ----*/
-/*---- MIXINS [_mixins.scss] ----*/
+/*---- MIXINS [core/_mixins.scss] ----*/
 /*---- custom reusable utilities, like rounded corners, shadows, etc ----*/
-/*---- UTILITIES [_utilities.scss] ----*/
+/*---- UTILITIES [core/_utilities.scss] ----*/
 /*---- single purpose utilities, text alignment, display, etc ----*/
 .text-left {
   text-align: left;
@@ -31,7 +31,7 @@
   display: none !important;
 }
 
-/*---- COLORS [_colors.scss] ----*/
+/*---- COLORS [theme/_colors.scss] ----*/
 /*---- global color variables for consistent theming ----*/
 :root {
   /* Vintique Sound Website Color Pallete */
@@ -48,7 +48,7 @@
   --color-info: #3998e6;
 }
 
-/*---- THEME [_theme.scss] ----*/
+/*---- THEME [theme/_theme.scss] ----*/
 /*---- dynamic theming styles for light and dark modes ----*/
 [data-theme=light] {
   --color-header: var(--color-jet);
@@ -122,17 +122,23 @@
   --color-accent-focus: var(--color-jet);
 }
 
-/*---- TYPOGRAPHY [_typography.scss] ----*/
+/*---- TYPOGRAPHY [theme/_typography.scss] ----*/
 /*---- global typography styles for headings, paragraphs, links, etc. ----*/
 :root {
-  /* Fonts */
+  /* Font Type*/
   --font-main: Verdana, Tahoma, Arial, sans-serif;
   --font-menu: Verdana, "Arial Black";
+  /* Global Font Sizes */
+  --font-size-h1: clamp(2.5rem, 4.5vw, 3rem);
+  --font-size-h2: clamp(2rem, 4vw, 2.5rem);
+  --font-size-h3: clamp(1.5rem, 3vw, 2rem);
+  --font-size-h4: clamp(1rem, 2.5vw, 1.5rem);
+  --font-size-h5: clamp(1rem, 2vw, 1.25rem);
+  --font-size-p: clamp(1rem, 1.5vw, 1.25rem);
+  /* Component Font Sizes */
   --font-size-menu: 14px;
   --font-size-header: 16px;
   --font-size-footer: 14px;
-  --font-size-small: 14px;
-  --font-size-large: 18px;
 }
 
 /*---- FONTS ----*/
@@ -149,27 +155,27 @@ menu {
 
 /*---- HEADINGS ----*/
 h1 {
-  font-size: clamp(2.5rem, 4.5vw, 3rem);
+  font-size: var(--font-size-h1);
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: var(--font-size-h2);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: var(--font-size-h3);
 }
 
 h4 {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: var(--font-size-h4);
 }
 
 /*---- PARAGRAPHS ----*/
 p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: var(--font-size-p);
 }
 
-/*---- SHAPES [_shapes.scss] ----*/
+/*---- SHAPES [theme/_shapes.scss] ----*/
 /*---- styles for shapes, borders, and other visual elements ----*/
 /*---- ROUNDED CORNERS ----*/
 .rounded {
@@ -186,7 +192,7 @@ p {
   box-shadow: 0 1px 3px var(--color-shadow);
 }
 
-/*---- LAYOUT [_layout.scss] ----*/
+/*---- LAYOUT [layout/_layout.scss] ----*/
 /*---- global layout styles for body, header, footer, main, grid/flex ----*/
 :root {
   --header-height: 46px;
@@ -247,8 +253,6 @@ header #menu-items a:hover {
 /*---- MAIN ----*/
 main {
   text-align: center;
-  padding-top: 2em;
-  padding-bottom: 2em;
   /* margin: auto; */
 }
 
@@ -311,7 +315,8 @@ footer {
   /* Define footer dimensions and behavior */
   width: 100vw;
   height: var(--footer-height);
-  padding: 8px;
+  padding-top: 14px;
+  padding-bottom: 8px;
   /* Align items in footer */
   display: flex;
   flex-direction: column;
@@ -413,7 +418,7 @@ button {
     width: 20px;
   }
 }
-/*---- SECTIONS [_sections.scss] ----*/
+/*---- SECTIONS [layout/_sections.scss] ----*/
 /*---- styles for different sections of the website ----*/
 /*---- CONTAINERS ----*/
 .container-text {
@@ -770,15 +775,91 @@ button {
   cursor: not-allowed;
 }
 
+/*---- DROPDOWN [component/_dropdown.scss] ----*/
+/*---- styles for dropdown components ----*/
+.dropdown * {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.dropdown-select {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-select:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.dropdown-select-clicked {
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 0.5em 1em var(--color-secondary);
+}
+
+.dropdown-arrow {
+  width: 0;
+  height: 0;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-top: 0.5em solid var(--color-primary);
+  transition: 0.3s;
+}
+
+.dropdown-arrow-rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 4px var(--color-border);
+  border-radius: 0.5em;
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.dropdown-menu-open {
+  display: block;
+  opacity: 1;
+}
+
+.active {
+  background-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 /*---- ACCORDIONS [components/_accordions.scss] ----*/
 /*---- styles for accordion components ----*/
 /*---- ACCORDION ----*/
 .accordion-button {
   width: 80%;
+  max-width: 960px;
   margin: 0 auto;
   border: 3px solid var(--color-border);
   background-color: var(--color-surface);
-  font-size: max(min(1.5vw, 20px), 14px);
+  font-size: var(--font-size-h5);
   text-align: center;
   position: relative;
   padding: 1rem 2rem 1rem 1rem;
@@ -809,12 +890,51 @@ button {
 
 .accordion-panel {
   width: 80%;
+  max-width: 960px;
   margin: 0 auto;
   margin-block-end: 16px;
   background-color: var(--color-surface);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
+}
+
+/*---- CONTACT FORMS [components/_contact-forms.scss] ----*/
+/*---- styles for contact forms ----*/
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  font-weight: bold;
+}
+
+.contact-form input {
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  resize: none;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+/*---- CARDS [components/_cards.scss] ----*/
+/*---- styles for card components ----*/
+.card {
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1rem;
+  color: var(--color-text);
 }
 
 /*# sourceMappingURL=styles.css.map */
