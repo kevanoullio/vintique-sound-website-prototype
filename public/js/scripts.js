@@ -13,6 +13,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
+
 /*---- THEME TOGGLE LOGIC ----*/
 // Theme toggle logic
 const themeToggle = document.getElementById('theme-toggle');
@@ -33,6 +34,7 @@ themeToggle.addEventListener('click', () => {
   themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
 });
 
+
 /*---- ACCORDION LOGIC ----*/
 var accordionButton = document.getElementsByClassName("accordion-button");
 var i;
@@ -48,6 +50,38 @@ for (i = 0; i < accordionButton.length; i++) {
     }
   });
 }
+
+
+/*---- DROPDOWN LOGIC ----*/
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+  const select = dropdown.querySelector('.dropdown-select');
+  const arrow = dropdown.querySelector('.dropdown-arrow');
+  const menu = dropdown.querySelector('.dropdown-menu');
+  const options = dropdown.querySelectorAll('.dropdown-menu li');
+  const selected = dropdown.querySelector('.dropdown-selected');
+
+  select.addEventListener('click', () => {
+    select.classList.toggle('dropdown-select-clicked');
+    arrow.classList.toggle('dropdown-arrow-rotate');
+    menu.classList.toggle('dropdown-menu-open');
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      selected.textContent = option.textContent;
+      select.classList.remove('dropdown-select-clicked');
+      arrow.classList.remove('dropdown-arrow-rotated');
+      menu.classList.remove('dropdown-menu-open');
+      options.forEach(opt => {
+        opt.classList.remove('active');
+      });
+      option.classList.add('active');
+    });
+  });
+});
+
+
 
 /*---- GOOGLE SHEETS DATA FETCHING ----*/
 // Function to fetch data from Google Sheets and update stats

@@ -53,20 +53,40 @@
           <a href="education.html">Educational Services</a>,
           <a href="education.html/#cubase">Cubase</a>, Samples & Loops, or anything else?
         </p>
-        <form action="https://formspree.io/f/yourFormID" method="POST" class="container-text">
+        <p>
+          You can use the form below to send me a message:
+        </p>
+
+        <!-- Contact Form -->
+        <form action="https://formspree.io/f/yourFormID" method="POST" class="contact-form">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required>
 
           <label for="email">Email:</label>
           <input type="email" id="email" name="_replyto" required>
 
+          <label for="subject">Subject:</label>
+          <div class="dropdown" name="subject" required>
+            <div class="dropdown-select">
+              <span class="dropdown-selected">General Inquiry</span>
+              <div class="dropdown-arrow"></div>
+            </div>
+            <ul class="dropdown-menu">
+              <li class="active">General Inquiry</li>
+              <li>Mixing & Mastering</li>
+              <li>Education</li>
+              <li>Plugins</li>
+              <li>Samples & Loops</li>
+              <li>Other</li>
+            </ul>
+          </div>
+
+
           <label for="message">Message:</label>
           <textarea id="message" name="message" required></textarea>
-
-          <button type="submit" class="button button-primary rounded">Send</button>
         </form>
         <a href="mailto:info@vintiquesound.com">
-          <button class="button button-primary rounded">Email Me</button>
+          <button type="submit" class="button button-medium button-primary rounded">Send</button>
         </a>
       </div>
     </div>
@@ -162,9 +182,9 @@
   <footer class="footer">
     <nav id="footer-socials">
       <a href="https://www.youtube.com/c/vintiquesound" target="_blank">
-        <img src="../../images/icons/socials/socials-icon-youtube.png" alt="YouTube Icon" /></a>
+        <img src="../images/icons/socials/socials-icon-youtube.png" alt="YouTube Icon" /></a>
       <a href="https://soundcloud.com/vintiquesound" target="_blank">
-        <img src="../../images/icons/socials/socials-icon-soundcloud.png" alt="Soundcloud Icon" /></a>
+        <img src="../images/icons/socials/socials-icon-soundcloud.png" alt="Soundcloud Icon" /></a>
       <a href="https://www.facebook.com/vintiquesound" target="_blank">
         <img src="../images/icons/socials/socials-icon-facebook.png" alt="Facebook Icon" /></a>
       <a href="https://www.instagram.com/vintiquesound" target="_blank">
