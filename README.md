@@ -17,6 +17,6 @@ More development will be done to make the website more complete.
 - I'll be adding a store page where I'll be selling my services and various digital products.
 
 
-## Usage
+## How to compile SASS .scss files to .css
 - Run ``npm run build:css`` to build once.
 - Run ``npm run watch:css`` to watch for changes.
